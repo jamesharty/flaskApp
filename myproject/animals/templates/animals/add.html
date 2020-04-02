@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="jumbotron">
+  <form method="POST">
+      {# This hidden_tag is a CSRF security feature. #}
+      {{ form.hidden_tag() }}
+      {{ form.animalID.label }} {{ form.animalID() }}
+      <br>
+      {{ form.startWeight.label }} {{ form.startWeight() }}
+      <br>
+      {{ form.w1.label }} {{ form.w1() }}
+      <br>
+      {{ form.w2.label }} {{ form.w2() }}
+      <br>
+      {{ form.w3.label }} {{ form.w3() }}
+      <br>
+      {{ form.w4.label }} {{ form.w4() }}
+      <br>
+      {{ form.finalWeight.label }} {{ form.finalWeight() }}
+      <br>
+      {{ form.motherID.label }} {{ form.motherID() }}
+      <br>
+      {{ form.fatherID.label }} {{ form.fatherID() }}
+      <br>
+      {{ form.diet.label }} {{ form.diet() }}
+      <br>
+      {{ form.ch4_daily_mean.label }} {{ form.ch4_daily_mean() }}
+      <br>
+      {{ form.feedEfficiency.label }} {{ form.feedEfficiency() }}
+      <br>
+      {{ form.waterEfficieny.label }} {{ form.waterEfficieny() }}
+      <br>
+      {{ form.submit() }}
+  </form>
+</div>
+{% endblock %}

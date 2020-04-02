@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row text-center">
+<div class="col-md-12">
+  <h1 class="display-4">Here Are All our Animal Profiles</h1>
+</div>
+</div>
+
+  <div class="container">
+    
+    <div class="card-deck mb-3 text-center">
+        {% if animals %} 
+        {% for animal in animals  %}
+
+        <div class="col-md-6 col-lg-4 mb-4">
+          <div class="card mb-4 shadow-sm">
+            <div class="card-body">
+              <h1 class="card-title pricing-card-title">ID: {{animal.animalID}} </h1>
+              <ul class="list-unstyled mt-3 mb-4">
+                <li><b>Start Weight :</b> {{animal.startWeight}}</li>
+                <li><b>First Weigh In: </b> {{animal.w1}}</li>
+                <li><b>Second Weigh In: </b>{{animal.w2}}</li>
+                <li><b>Third Weigh In: </b>{{animal.w3}}</li>
+                <li><b>Fourth Weigh In: </b>{{animal.w4}}</li>
+                <li><b>Final Weight: </b>{{animal.finalWeight}}</li>
+                <li><b>Mother ID: </b>{{animal.motherID}}</li>
+                <li><b>Father ID: </b>{{animal.fatherID}}</li>
+                <li><b>Diet: </b>{{animal.diet}}</li>
+                <li><b>Daily Methane Mean: </b>{{animal.ch4_daily_mean}}</li>
+                <li><b>Feed Efficiency: </b>{{animal.feedEfficiency}}</li>
+                <li><b>Water Efficiency: </b>{{animal.waterEfficieny}}</li>
+                <a class="nav-item nav-link" href="{{ url_for('animals.graph' , input_data=animal.animalID ) }}">Graph For Animal</a>
+                
+              </ul>
+            </div>
+          </div>
+        </div>
+      
+
+        {%  endfor %}
+
+    {% else %}
+          <div class="col-md-12"></div>
+          <p>No Animals available</p>
+    {% endif %}
+      </div>
+
+    </div>
+
+
+{% endblock  %}
